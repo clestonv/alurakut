@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <>
-    <AlurakutMenu />
+    <AlurakutMenu githubUser={usuarioAleatorio}/>
     <MainGrid>
       <div className="profileArea" style={{ gridArea: 'profileArea'}}>
         <ProfileSidebar githubUser={usuarioAleatorio}/>
@@ -61,7 +61,7 @@ export default function Home() {
             O que você deseja fazer?
           </h2>
 
-          <form onSubmit={function handleCriarComunidade(e) {
+          <form onSubmit={function handleCriarComunidade(e){
             e.preventDefault();
             const dadosDoForm = new FormData(e.target);
             console.log(dadosDoForm);
@@ -113,7 +113,7 @@ export default function Home() {
             {comunidades.map((itemAtual) => {
               return (
                 <li key={ itemAtual.id }>
-                  <a href={`/users/${itemAtual.title}`} key={itemAtual.title}>
+                  <a href={`/users/${itemAtual.title}`}>
                   <img src={itemAtual.image} />
                   <span>{itemAtual.title}</span>
                 </a>
@@ -131,7 +131,7 @@ export default function Home() {
             {pessoasFavoritas.map((itemAtual) => {
               return (
                 <li key={ itemAtual }>
-                  <a href={`/users/${itemAtual}`} key={itemAtual}>
+                  <a href={`/users/${itemAtual}`}>
                   <img src={`https://github.com/${itemAtual}.png`} />
                   <span>{itemAtual}</span>
                 </a>
